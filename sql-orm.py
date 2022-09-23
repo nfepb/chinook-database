@@ -14,7 +14,7 @@ base = declarative_base()
 class Artist(base):
     __tablename__ = "Artist"
     ArtistId = Column(Integer, primary_key=True)
-    Name = Column(string)
+    Name = Column(String)
 
 
 # Create variable for "Album" table
@@ -23,6 +23,7 @@ class Album(base):
     AlbumId = Column(Integer, primary_key=True)
     Title = Column(String)
     ArtistId = Column(Integer, ForeignKey("Artist.ArtistId"))
+    
 
 # Create variable for "Track" table
 class Track(base):
@@ -33,8 +34,8 @@ class Track(base):
     MediaTypeId = Column(Integer, primary_key=False)
     GenreId = Column(Integer, primary_key=False)
     Composer = Column(String)
-    Milliseconds = Column(String)
-    Bytes = Column(String)
+    Milliseconds = Column(String, primary_key=False)
+    Bytes = Column(String, primary_key=False)
     UnitPrice = Column(Float)
 
 
